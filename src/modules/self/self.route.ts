@@ -1,6 +1,6 @@
 import { Router }         from 'express';
-import { selfController } from '@controllers/self.controller';
 import { authorize }      from '@middleware/auth.middleware';
+import { selfController } from './self.controller';
 
 export const selfRoute = Router();
 

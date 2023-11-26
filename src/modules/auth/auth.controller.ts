@@ -1,8 +1,8 @@
 import { Request, Response }              from 'express';
-import { ISignInSchema, ISignUpSchema }   from '@schemas/auth.schema';
-import { userService }                    from '@services/user.service';
+import { userService }                    from 'entities/user/user.service';
 import { comparePasswords, hashPassword } from '@utils/password';
 import { createAccessToken }              from '@utils/token';
+import { ISignInSchema, ISignUpSchema }   from './auth.schema';
 
 class AuthController {
   public async signUp(request: Request, response: Response) {

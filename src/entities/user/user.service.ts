@@ -1,5 +1,5 @@
 import { db }    from '@config/db';
-import { IUser } from '@models/user.model';
+import { IUser } from './user.model';
 
 interface IsEmailUniqueQuery {
   email_count: string;

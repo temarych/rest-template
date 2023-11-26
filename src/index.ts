@@ -3,9 +3,9 @@ import 'express-async-errors';
 import express         from 'express';
 import dotenv          from 'dotenv';
 import cors            from 'cors';
-import { authRoute }   from '@routes/auth.route';
-import { selfRoute }   from '@routes/self.route';
 import { handleError } from '@middleware/error.middleware';
+import { authRoute }   from '@modules/auth/auth.route';
+import { selfRoute }   from '@modules/self/self.route';
 
 dotenv.config();
 
