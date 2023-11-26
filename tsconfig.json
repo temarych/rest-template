@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "outDir": "dist",
+    "typeRoots": ["typings"],
+    "paths": {
+      "@controllers/*": ["controllers/*"],
+      "@routes/*"     : ["routes/*"],
+      "@services/*"   : ["services/*"],
+      "@models/*"     : ["models/*"],
+      "@dtos/*"       : ["dtos/*"],
+      "@schemas/*"    : ["schemas/*"],
+      "@middleware/*" : ["middleware/*"],
+      "@typings/*"    : ["typings/*"],
+      "@config/*"     : ["config/*"],
+      "@utils/*"      : ["utils/*"],
+      "@/*"           : ["/*"]
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
