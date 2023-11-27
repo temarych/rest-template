@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { IUser }             from '@entities/user/user.model';
-import { UserDTO }           from '@entities/user/user.dto';
-import { userService }       from '@services/user.service';
+import { IUser }             from '@modules/users/users.model';
+import { UserDTO }           from '@modules/users/users.dto';
+import { usersService }      from '@modules/users/users.service';
 
 class SelfController {
   public async getSelf(request: Request, response: Response) {
@@ -13,7 +13,7 @@ class SelfController {
 
   public async deleteSelf(request: Request, response: Response) {
     const user = request.user as IUser;
-    await userService.deleteUserById(user.id);
+    await usersService.deleteUserById(user.id);
     response.send({ message: 'Your account was deleted' });
   }
 }

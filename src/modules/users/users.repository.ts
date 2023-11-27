@@ -1,5 +1,5 @@
 import { db }          from '@config/db';
-import { IUser, User } from './user.model';
+import { IUser, User } from './users.model';
 
 export interface IUserData {
   id        : string;
@@ -17,7 +17,7 @@ export interface IUsernameCountData {
   username_count: string;
 }
 
-class UserRepository {
+class UsersRepository {
   public async save(data: Omit<IUser, 'id' | 'createdAt'>): Promise<IUser> {
     const result = await db.query<IUserData>(
       `
@@ -125,4 +125,4 @@ class UserRepository {
   }
 }
 
-export const userRepository = new UserRepository();
+export const usersRepository = new UsersRepository();

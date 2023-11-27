@@ -11,8 +11,6 @@
     "typeRoots": ["typings"],
     "paths": {
       "@modules/*"    : ["modules/*"],
-      "@services/*"   : ["services/*"],
-      "@entities/*"   : ["entities/*"],
       "@middleware/*" : ["middleware/*"],
       "@typings/*"    : ["typings/*"],
       "@config/*"     : ["config/*"],

@@ -1,4 +1,4 @@
-import { IUser } from './user.model';
+import { IUser } from './users.model';
 
 export type IUserDTO = Omit<IUser, 'password'>;
 

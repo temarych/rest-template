@@ -1,13 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
+import { usersService }                    from '@modules/users/users.service';
 import { parseToken }                      from '@utils/token';
-import { userService }                     from '@services/user.service';
+import { HttpError }                       from '@utils/error';
 
 export const authorize = async (request: Request, response: Response, next: NextFunction) => {
   const accessToken = request.headers.authorization;
 
   if (accessToken === undefined) {
-    return response.status(401).send({
-      code   : 'no-jwt',
+    throw new HttpError(401, {
+      type   : 'no-jwt',
       message: 'No access token provided',
     });
   }
@@ -15,24 +16,24 @@ export const authorize = async (request: Request, response: Response, next: Next
   const result = parseToken(accessToken);
 
   if (!result.success && result.reason === 'expired') {
-    return response.status(401).send({
-      code   : 'jwt-expired',
+    throw new HttpError(401, {
+      type   : 'jwt-expired',
       message: 'Access token is expired',
     });
   }
 
   if (!result.success) {
-    return response.status(401).send({
-      code   : 'jwt-invalid',
+    throw new HttpError(401, {
+      type   : 'jwt-invalid',
       message: 'Access token is not valid',
     });
   }
 
-  const user = await userService.findUserById(result.id);
+  const user = await usersService.findUserById(result.id);
 
   if (user === null) {
-    return response.status(401).send({
-      code   : 'jwt-invalid',
+    throw new HttpError(401, {
+      type   : 'jwt-invalid',
       message: 'Access token is not valid',
     });
   }

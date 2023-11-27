@@ -1,33 +1,33 @@
-import { IUser }          from '@entities/user/user.model';
-import { userRepository } from '@entities/user/user.repository';
+import { IUser }           from '@modules/users/users.model';
+import { usersRepository } from '@modules/users/users.repository';
 
-class UserService {
+class UsersService {
   public async createUser(data: Omit<IUser, 'id' | 'createdAt'>): Promise<IUser> {
-    return await userRepository.save(data);
+    return await usersRepository.save(data);
   }
 
   public async findUserByEmail(email: string): Promise<IUser | null> {
-    return await userRepository.findByEmail(email);
+    return await usersRepository.findByEmail(email);
   }
 
   public async findUserById(id: string): Promise<IUser | null> {
-    return await userRepository.findById(id);
+    return await usersRepository.findById(id);
   }
 
   public async deleteUserByEmail(email: string): Promise<void> {
-    await userRepository.findByEmail(email);
+    await usersRepository.findByEmail(email);
   }
 
   public async deleteUserById(id: string): Promise<void> {
-    await userRepository.findByEmail(id);
+    await usersRepository.findByEmail(id);
   }
 
   public async countEmails(email: string): Promise<number> {
-    return await userRepository.countEmails(email);
+    return await usersRepository.countEmails(email);
   }
 
   public async countUsernames(username: string): Promise<number> {
-    return await userRepository.countUsernames(username);
+    return await usersRepository.countUsernames(username);
   }
 
   public async isEmailUnique(email: string): Promise<boolean> {
@@ -41,4 +41,4 @@ class UserService {
   }
 }
 
-export const userService = new UserService();
+export const usersService = new UsersService();
