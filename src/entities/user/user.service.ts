@@ -18,7 +18,7 @@ export interface IUsernameCountData {
 }
 
 class UserService {
-  public async createUser(data: Omit<IUser, 'id' | 'createdAt'>): Promise<IUser> {
+  public async createUser(data: Omit<IUser, 'id' | 'createdAt'>): Promise<User> {
     const result = await db.query<IDbUserData>(
       `
         INSERT INTO users(email, username, password)
@@ -36,7 +36,7 @@ class UserService {
     });
   }
 
-  public async findUserByEmail(email: string): Promise<IUser | null> {
+  public async findUserByEmail(email: string): Promise<User | null> {
     const result = await db.query<IDbUserData>(
       `
         SELECT * FROM users
@@ -55,7 +55,7 @@ class UserService {
     });
   }
 
-  public async findUserById(id: string): Promise<IUser | null> {
+  public async findUserById(id: string): Promise<User | null> {
     const result = await db.query<IDbUserData>(
       `
         SELECT * FROM users
