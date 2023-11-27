@@ -1,5 +1,5 @@
 import { Request, Response }              from 'express';
-import { userService }                    from 'entities/user/user.service';
+import { userService }                    from '@services/user.service';
 import { comparePasswords, hashPassword } from '@utils/password';
 import { createAccessToken }              from '@utils/token';
 import { ISignInSchema, ISignUpSchema }   from './auth.request';

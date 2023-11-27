@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { parseToken }                      from '@utils/token';
-import { userService }                     from '@entities/user/user.service';
+import { userService }                     from '@services/user.service';
 
 export const authorize = async (request: Request, response: Response, next: NextFunction) => {
   const accessToken = request.headers.authorization;

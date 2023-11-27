@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { IUser }             from 'entities/user/user.model';
-import { userService }       from 'entities/user/user.service';
-import { UserDTO }           from 'entities/user/user.dto';
+import { IUser }             from '@entities/user/user.model';
+import { UserDTO }           from '@entities/user/user.dto';
+import { userService }       from '@services/user.service';
 
 class SelfController {
   public async getSelf(request: Request, response: Response) {
