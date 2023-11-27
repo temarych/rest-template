@@ -17,6 +17,7 @@ This is a simple template for kickstarting your RESTful API development. It prov
 - **PostgreSQL:** Database management system for data storage and retrieval
 - **Zod:** TypeScript-first schema declaration and validation library for ensuring data integrity and validation
 - **Path Aliases:** Custom path aliases for easier module imports
+- **Powerful Architecture:** Scalable and maintainable architecture suitable for medium and large projects
 - **JWT Authentication:** JSON Web Token implementation for secure user authentication and authorization
 
 ## Getting Started
@@ -68,6 +69,28 @@ npm install
 - `DATABASE_HOST`: Hostname of the server where the database is located
 - `DATABASE_USER`: Username used to authenticate and access the database
 - `DATABASE_PASSWORD`: Password required to authenticate the specified database user
+
+## Architecture
+
+### Entities
+
+Entities represent tables and relations stored in the database such as user, post, favorite post etc
+
+- `*.dto.ts`: Data which can be sent to client
+- `*.model.ts`: Data which can be used for internal operations
+- `*.repository.ts`: A set of methods for CRUD operations in the database
+
+### Modules
+
+Modules represent features of your API such as authorization, search etc.
+
+- `*.controller.ts`: Handlers for API subroutes
+- `*.request.ts`: Schemas for request body validation
+- `*.route.ts`: Route mapping
+
+### Services
+
+Services represent a set of methods for working with entities, external APIs etc
 
 ## Contributing
 
