@@ -70,28 +70,6 @@ npm install
 - `DATABASE_USER`: Username used to authenticate and access the database
 - `DATABASE_PASSWORD`: Password required to authenticate the specified database user
 
-## Architecture
-
-### Entities
-
-Entities represent tables and relations stored in the database such as user, post, favorite post etc
-
-- `*.dto.ts`: Data which can be sent to client
-- `*.model.ts`: Data which can be used for internal operations
-- `*.repository.ts`: A set of methods for CRUD operations in the database
-
-### Modules
-
-Modules represent features of your API such as authorization, search etc.
-
-- `*.controller.ts`: Handlers for API subroutes
-- `*.request.ts`: Schemas for request body validation
-- `*.route.ts`: Route mapping
-
-### Services
-
-Services represent a set of methods for working with entities, external APIs etc
-
 ## Contributing
 
 Feel free to contribute to the project by opening issues or submitting pull requests.
